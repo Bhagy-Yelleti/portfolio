@@ -12,6 +12,9 @@ const particles = [
   { left: "77%", top: "24%", size: 3, color: "#efb36c", delay: 2.2 },
   { left: "86%", top: "76%", size: 2, color: "#f3e0b5", delay: 2.8 },
   { left: "92%", top: "18%", size: 4, color: "#71caa1", delay: 3.1 },
+  { left: "48%", top: "48%", size: 3, color: "#c69a4b", delay: 1.7 },
+  { left: "68%", top: "86%", size: 3, color: "#2a9d6d", delay: 2.6 },
+  { left: "34%", top: "58%", size: 2, color: "#f7dea7", delay: 3.4 },
 ];
 
 export function MagicDust() {
@@ -30,13 +33,13 @@ export function MagicDust() {
             boxShadow: `0 0 24px ${particle.color}`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, 10, -8, 0],
-            opacity: [0.05, 0.42, 0.08],
-            scale: [0.75, 1.16, 0.82],
+            y: [0, -44, 0],
+            x: [0, 12, -10, 0],
+            opacity: [0.08, 0.58, 0.12],
+            scale: [0.7, 1.24, 0.84],
           }}
           transition={{
-            duration: 10 + particle.delay,
+            duration: 12 + particle.delay,
             delay: particle.delay,
             repeat: Infinity,
             ease: "easeInOut",
