@@ -108,19 +108,19 @@ section[id] {
 
 .hero-shell {
   min-height: 100vh;
-  padding-top: 4.5rem;
+  padding-top: 5.5rem;
 }
 
 .hero-layout {
   display: grid;
-  min-height: 90vh;
-  gap: 2.75rem;
+  min-height: 94vh;
+  gap: 4.5rem;
   align-items: center;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
 }
 
 .hero-copy {
-  max-width: 34rem;
+  max-width: 30rem;
 }
 
 .hero-kicker {
@@ -154,7 +154,7 @@ section[id] {
 }
 
 .section-gap {
-  margin-top: 8.5rem;
+  margin-top: 10rem;
 }
 
 .section-heading {
@@ -239,7 +239,7 @@ section[id] {
   border-radius: 2.6rem;
   border: 1px solid rgba(210, 169, 88, 0.14);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
-  padding: 1.7rem;
+  padding: 1.9rem;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
     0 42px 120px rgba(0, 0, 0, 0.34),
@@ -250,17 +250,17 @@ section[id] {
 .project-stage {
   position: relative;
   display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     radial-gradient(circle at top left, rgba(250, 232, 188, 0.08), transparent 20%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
-  padding: 1rem;
+  padding: 1.1rem;
 }
 
 .project-stage-pane {
-  min-height: 6.2rem;
+  min-height: 5.6rem;
   border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
@@ -269,22 +269,17 @@ section[id] {
 }
 
 .project-stage-pane-large {
-  min-height: 10rem;
+  min-height: 8.8rem;
 }
 
 .project-stage-pane-short {
-  min-height: 3.8rem;
+  min-height: 5.6rem;
 }
 
 .project-stage-grid {
   display: grid;
-  gap: 0.9rem;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
-}
-
-.project-stage-stack {
-  display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
 }
 
 .work-chip {
@@ -396,14 +391,14 @@ section[id] {
 
 .wizard-scene-shell {
   position: relative;
-  min-height: 35rem;
+  min-height: 38rem;
   overflow: hidden;
   border-radius: 3rem;
   border: 1px solid rgba(212, 172, 91, 0.16);
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 238, 204, 0.08), transparent 18%),
-    radial-gradient(circle at 18% 18%, rgba(201, 72, 38, 0.14), transparent 26%),
-    radial-gradient(circle at 80% 78%, rgba(21, 104, 70, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 18%, rgba(255, 238, 204, 0.05), transparent 16%),
+    radial-gradient(circle at 20% 18%, rgba(201, 72, 38, 0.09), transparent 22%),
+    radial-gradient(circle at 78% 76%, rgba(21, 104, 70, 0.12), transparent 20%),
     linear-gradient(180deg, rgba(7, 6, 6, 0.76), rgba(5, 5, 6, 0.96));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
@@ -415,31 +410,15 @@ section[id] {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 24% 24%, rgba(248, 224, 172, 0.08), transparent 14%),
-    radial-gradient(circle at 78% 72%, rgba(41, 165, 114, 0.08), transparent 16%),
+    radial-gradient(circle at 24% 24%, rgba(248, 224, 172, 0.05), transparent 12%),
+    radial-gradient(circle at 78% 72%, rgba(41, 165, 114, 0.05), transparent 14%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0));
   pointer-events: none;
   z-index: 1;
 }
 
-.wizard-scene-copy {
-  position: absolute;
-  left: 1.4rem;
-  top: 1.4rem;
-  z-index: 2;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(0, 0, 0, 0.18);
-  padding: 0.65rem 0.9rem;
-  font-size: 0.64rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(243, 228, 194, 0.66);
-  backdrop-filter: blur(14px);
-}
-
 .wizard-scene-shell canvas {
-  min-height: 35rem;
+  min-height: 38rem;
 }
 
 @keyframes drift {
@@ -458,11 +437,11 @@ section[id] {
   }
 
   .hero-shell {
-    padding-top: 5.25rem;
+    padding-top: 6rem;
   }
 
   .section-gap {
-    margin-top: 13rem;
+    margin-top: 14rem;
   }
 
   .work-card,
@@ -483,7 +462,7 @@ section[id] {
 
   .wizard-scene-shell,
   .wizard-scene-shell canvas {
-    min-height: 28rem;
+    min-height: 31rem;
   }
 }
 

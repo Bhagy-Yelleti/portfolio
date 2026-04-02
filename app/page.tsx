@@ -73,7 +73,7 @@ export default function HomePage() {
           </div>
         </Reveal>
 
-        <div className="mt-16 grid auto-rows-[minmax(340px,auto)] gap-7 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-20 grid auto-rows-[minmax(320px,auto)] gap-8 lg:grid-cols-12 lg:gap-12">
           {selectedProjects.map((project, index) => (
             <Reveal
               key={project.slug}
@@ -90,7 +90,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_80%_18%,rgba(234,198,118,0.16),transparent_22%),radial-gradient(circle_at_22%_82%,rgba(27,115,78,0.14),transparent_24%)]" />
 
                 <div className="relative flex h-full flex-col justify-between gap-12">
-                  <div className="space-y-8">
+                  <div className="space-y-10">
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-[11px] uppercase tracking-[0.34em] text-[rgba(238,222,186,0.62)]">{project.category}</span>
                       <span className="text-sm text-white/42">{project.year}</span>
@@ -107,10 +107,7 @@ export default function HomePage() {
                       <div className="project-stage-pane project-stage-pane-large" />
                       <div className="project-stage-grid">
                         <div className="project-stage-pane" />
-                        <div className="project-stage-stack">
-                          <div className="project-stage-pane project-stage-pane-short" />
-                          <div className="project-stage-pane" />
-                        </div>
+                        <div className="project-stage-pane project-stage-pane-short" />
                       </div>
                     </div>
                   </div>
