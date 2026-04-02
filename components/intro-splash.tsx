@@ -8,119 +8,103 @@ interface IntroSplashProps {
 }
 
 export function IntroSplash({ onComplete }: IntroSplashProps) {
-  const [showStreaks, setShowStreaks] = useState(false);
-  const [audioAttempted, setAudioAttempted] = useState(false);
-
   useEffect(() => {
-    let audioInstance: HTMLAudioElement | null = null;
-
-    const playSound = () => {
-      if (audioAttempted) return;
-      setAudioAttempted(true);
-
-      try {
-        audioInstance = new Audio("/sounds/intro.mp3");
-        audioInstance.volume = 0.6;
-        audioInstance.play().catch(() => {
-          // Autoplay blocked, will retry on user interaction
-        });
-      } catch (error) {
-        // Fallback if audio fails
-      }
-    };
-
-    // Attempt to play sound immediately
-    playSound();
+    // Play intro sound
+    try {
+      const audio = new Audio("/sounds/intro.mp3");
+      audio.volume = 0.7;
+      audio.play().catch(() => {
+        // Autoplay blocked, silently fail
+      });
+    } catch (error) {
+      // Fallback
+    }
 
     // Timeline for intro sequence
-    const introTimeline = setTimeout(() => {
-      setShowStreaks(true);
-    }, 400);
-
-    const completeTimeline = setTimeout(() => {
+    const timer = setTimeout(() => {
       onComplete();
-    }, 2800);
+    }, 3000);
 
-    // Cleanup
-    return () => {
-      clearTimeout(introTimeline);
-      clearTimeout(completeTimeline);
-      if (audioInstance) {
-        audioInstance.pause();
-      }
-    };
-  }, [onComplete, audioAttempted]);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black z-50 overflow-hidden">
-      {/* Main B Logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative"
-      >
-        {/* B text with glow */}
+      {/* Main animated B */}
+      <div className="relative w-64 h-64 md:w-80 md:h-80">
+        {/* Phase 1: B glows in */}
         <motion.div
-          animate={
-            showStreaks
-              ? { opacity: 0, scale: 5, filter: "blur(20px)" }
-              : { opacity: 1, scale: 1 }
-          }
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.4 }}
-          className="text-9xl font-black text-white drop-shadow-2xl"
-          style={{
-            textShadow: `
-              0 0 10px rgba(220, 38, 38, 0.8),
-              0 0 20px rgba(245, 158, 11, 0.6),
-              0 0 30px rgba(139, 92, 246, 0.4)
-            `,
-          }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="absolute inset-0 flex items-center justify-center"
         >
-          B
+          <div
+            className="text-8xl md:text-9xl font-black text-red-600"
+            style={{
+              textShadow: `
+                0 0 40px rgba(220, 38, 38, 1),
+                0 0 80px rgba(220, 38, 38, 0.8),
+                0 0 120px rgba(220, 38, 38, 0.6)
+              `,
+              letterSpacing: "-0.05em",
+            }}
+          >
+            B
+          </div>
         </motion.div>
-      </motion.div>
 
-      {/* Animated Streaks */}
-      {showStreaks && (
-        <div className="absolute inset-0 flex items-center justify-center gap-2">
-          {[0, 1, 2, 3, 4].map((i) => (
+        {/* Phase 2: B expands and fades, streaks appear */}
+        <motion.div
+          initial={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 0, scale: 4 }}
+          transition={{ duration: 1.2, delay: 0.8, ease: "easeIn" }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <div
+            className="text-8xl md:text-9xl font-black text-red-600"
+            style={{
+              textShadow: `
+                0 0 40px rgba(220, 38, 38, 0.5),
+                0 0 80px rgba(220, 38, 38, 0.3)
+              `,
+              letterSpacing: "-0.05em",
+            }}
+          />
+        </motion.div>
+
+        {/* Animated streaks */}
+        <div className="absolute inset-0 flex items-center justify-center gap-3">
+          {[
+            { color: "bg-red-600", delay: 0.9 },
+            { color: "bg-orange-500", delay: 0.95 },
+            { color: "bg-yellow-400", delay: 1 },
+            { color: "bg-purple-600", delay: 1.05 },
+            { color: "bg-red-500", delay: 1.1 },
+          ].map((streak, i) => (
             <motion.div
               key={i}
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: "12px", opacity: 1 }}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.08,
-                ease: "easeOut",
-              }}
-              className={`h-96 rounded-full ${
-                [
-                  "bg-red-600",
-                  "bg-orange-500",
-                  "bg-purple-600",
-                  "bg-yellow-500",
-                  "bg-red-500",
-                ][i]
-              }`}
+              initial={{ scaleY: 0, opacity: 0 }}
+              animate={{ scaleY: 1, opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6, delay: streak.delay }}
+              className={`w-4 md:w-6 h-64 md:h-80 rounded-full ${streak.color}`}
               style={{
-                boxShadow: `0 0 20px ${
-                  ["rgb(220, 38, 38)", "rgb(245, 158, 11)", "rgb(139, 92, 246)", "rgb(234, 179, 8)", "rgb(239, 68, 68)"][i]
-                }`,
+                boxShadow: `0 0 30px currentColor`,
               }}
             />
           ))}
         </div>
-      )}
+      </div>
 
-      {/* Skip intro on click (fallback for sound) */}
+      {/* Skip button */}
       <motion.button
-        onClick={() => onComplete()}
+        onClick={onComplete}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
+        animate={{ opacity: 0.6 }}
         whileHover={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-6 right-6 px-4 py-2 text-xs text-white/50 hover:text-white border border-white/20 rounded"
+        className="absolute top-6 right-6 px-4 py-2 text-xs text-white/70 hover:text-white border border-white/30 rounded transition-colors"
       >
         Skip
       </motion.button>
