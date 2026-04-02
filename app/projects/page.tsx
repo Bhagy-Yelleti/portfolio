@@ -19,7 +19,7 @@ export default function ProjectsPage() {
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {featuredProjects.map((project, index) => (
           <Reveal key={project.slug} delay={index * 0.08}>
-            <ProjectCard project={project} priority={index === 0} />
+            <ProjectCard project={project} index={index} />
           </Reveal>
         ))}
       </div>
