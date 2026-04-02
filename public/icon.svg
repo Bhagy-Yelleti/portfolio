@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="32" fill="#090b12"/>
+  <defs>
+    <linearGradient id="crest" x1="18" y1="18" x2="106" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f0d28e"/>
+      <stop offset="38%" stop-color="#8a1f33"/>
+      <stop offset="68%" stop-color="#0c5b3e"/>
+      <stop offset="100%" stop-color="#c99c48"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 58) rotate(90) scale(46)">
+      <stop offset="0%" stop-color="#d8b566" stop-opacity=".24"/>
+      <stop offset="100%" stop-color="#d8b566" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="64" cy="64" r="42" fill="url(#glow)"/>
+  <path d="M64 18C72 26 75 37 73 49C79 45 87 43 97 45C90 49 84 55 80 63C92 62 103 65 110 73C101 75 92 80 86 88C80 96 77 106 76 116C70 108 66 98 64 86C62 98 58 108 52 116C51 106 48 96 42 88C36 80 27 75 18 73C25 65 36 62 48 63C44 55 38 49 31 45C41 43 49 45 55 49C53 37 56 26 64 18Z" stroke="url(#crest)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M57 38C54 49 54 58 58 70C52 70 47 72 43 76C48 80 51 87 52 94C57 90 61 87 66 86" stroke="url(#crest)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64 42C72 51 74 63 70 76C67 85 66 95 69 108" stroke="url(#crest)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 44C78 43 84 46 87 52C90 58 89 65 84 72C81 77 79 82 78 88C77 97 81 103 90 108" stroke="url(#crest)" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="74" cy="51" r="1.8" fill="#7cffbf"/>
+</svg>

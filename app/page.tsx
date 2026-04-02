@@ -4,7 +4,9 @@ import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, Github, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { BrandCrest } from "@/components/brand-crest";
 import { Reveal } from "@/components/reveal";
+import { SocialLinks } from "@/components/social-links";
 import { capabilities, featuredProjects } from "@/data/site";
 
 const processSteps = [
@@ -59,84 +61,12 @@ const processSteps = [
 ];
 
 const aboutPoints = [
-  "Ambition that shows up in the details, not just the tagline.",
-  "Obsessed with interfaces that feel premium before users can explain why.",
-  "Still early in the journey, but already building with elite expectations.",
+  "I build with ambition that shows up in the details, not just the tagline.",
+  "I am obsessed with interfaces that feel premium before users can explain why.",
+  "I care about clarity, motion, and frontend execution equally.",
 ];
 
 const marqueeSkills = [...capabilities, "Interaction systems", "Creative frontend", "Visual storytelling", "Premium product polish"];
-
-const floatingSnippets = [
-  "const delight = precision + motion;",
-  "<Interface memory='high' />",
-  "if (quality < elite) refine();",
-];
-
-function HeroIdentity() {
-  return (
-    <div className="relative min-h-[620px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-6 shadow-aura backdrop-blur-2xl md:p-8">
-      <div className="absolute inset-0 bg-grid opacity-20" />
-      <motion.div
-        className="absolute left-[8%] top-[12%] h-20 w-20 rounded-[1.75rem] border border-white/15 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(124,140,255,0.1))] backdrop-blur-xl"
-        animate={{ y: [0, -14, 0], rotate: [0, 6, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute right-[10%] top-[18%] h-14 w-14 rounded-full border border-[#95a7ff]/30 bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(116,131,255,0.55)_35%,rgba(10,12,22,0.92)_78%)] shadow-[0_0_40px_rgba(116,131,255,0.55)]"
-        animate={{ x: [0, 10, 0], y: [0, -16, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/10"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.98),rgba(120,96,255,0.72)_18%,rgba(69,198,255,0.45)_38%,rgba(8,10,18,0.98)_76%)] shadow-[0_0_120px_rgba(102,116,255,0.45)]"
-        animate={{ scale: [1, 1.08, 0.96, 1], y: [0, -20, 8, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 rounded-[1.6rem] border border-white/15 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] shadow-[0_0_50px_rgba(110,127,255,0.3)] backdrop-blur-xl"
-        animate={{ rotate: [0, 45, 90, 45, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {floatingSnippets.map((snippet, index) => (
-        <motion.div
-          key={snippet}
-          className={`absolute rounded-[1.5rem] border border-white/10 bg-[rgba(8,10,18,0.72)] px-4 py-3 font-mono text-[11px] text-white/70 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl ${
-            index === 0
-              ? "left-4 top-12 md:left-8"
-              : index === 1
-                ? "bottom-24 left-8 md:left-12"
-                : "right-4 top-28 md:right-10"
-          }`}
-          animate={{ y: [0, index % 2 === 0 ? -10 : 10, 0], x: [0, index === 1 ? 8 : -8, 0] }}
-          transition={{ duration: 7 + index, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {snippet}
-        </motion.div>
-      ))}
-
-      <motion.div
-        className="absolute bottom-8 right-6 w-[180px] rounded-[1.75rem] border border-white/10 bg-[rgba(8,10,18,0.68)] p-4 backdrop-blur-xl md:w-[220px]"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <p className="text-[10px] uppercase tracking-[0.4em] text-white/42">Identity signal</p>
-        <p className="mt-3 text-sm leading-6 text-white/74">
-          Abstract geometry, atmospheric motion, and code fragments standing in for a personal portrait.
-        </p>
-      </motion.div>
-    </div>
-  );
-}
 
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement | null>(null);
@@ -148,11 +78,11 @@ export default function HomePage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.35]);
 
   return (
-    <main className="pb-24">
-      <section id="hero" ref={heroRef} className="section-shell relative min-h-screen pt-10 md:pt-20">
-        <motion.div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center" style={{ y: heroY, opacity: heroOpacity }}>
+    <main className="pb-32 md:pb-40">
+      <section id="hero" ref={heroRef} className="section-shell relative min-h-screen pt-12 md:pt-24">
+        <motion.div className="grid gap-10 lg:min-h-[88vh] lg:grid-cols-[1.02fr_0.98fr] lg:items-center" style={{ y: heroY, opacity: heroOpacity }}>
           <Reveal className="relative">
-            <div className="glass-panel glow-border overflow-hidden rounded-[2.8rem] p-7 md:p-12">
+            <div className="glass-panel glow-border overflow-hidden rounded-[2.8rem] p-8 md:p-14">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(123,107,255,0.16),transparent_28%),radial-gradient(circle_at_75%_30%,rgba(86,170,255,0.12),transparent_24%)]" />
               <div className="relative">
                 <motion.p
@@ -169,22 +99,38 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  I BUILD
-                  <span className="block text-white/86">INTERFACES</span>
-                  <span className="display-serif block font-medium italic text-[#d9deff]">PEOPLE REMEMBER</span>
+                  BHAGYA
+                  <span className="block text-white/86">YELLETI</span>
+                  <span className="display-serif block text-[clamp(2.2rem,4vw,4.2rem)] font-medium italic text-[#d9deff]">
+                    Frontend Engineer and Design-minded Developer
+                  </span>
                 </motion.h1>
                 <motion.div
-                  className="mt-10 grid gap-8 md:grid-cols-[1.12fr_0.88fr]"
+                  className="mt-12 grid gap-10 md:grid-cols-[1.08fr_0.92fr]"
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.24 }}
                 >
-                  <p className="max-w-lg text-lg leading-8 text-white/68 md:text-xl">
-                    Frontend engineer with a design obsession, a product brain, and very little patience for forgettable interfaces.
+                  <div className="space-y-8">
+                  <p className="max-w-lg text-lg leading-8 text-white/68 md:text-[1.35rem] md:leading-9">
+                    Bhagya Yelleti crafting interfaces with cinematic energy, product thinking, and a sharp eye for premium interaction detail.
                   </p>
+                  <div className="grid gap-4 sm:grid-cols-3">
+                    {[
+                      { label: "Mood", value: "Cinematic" },
+                      { label: "Craft", value: "Precise" },
+                      { label: "Build", value: "Intentional" },
+                    ].map((item) => (
+                      <div key={item.label} className="rounded-[1.5rem] border border-[rgba(201,156,72,0.16)] bg-[rgba(11,13,24,0.52)] p-4">
+                        <p className="text-[10px] uppercase tracking-[0.35em] text-[#d3b06b]">{item.label}</p>
+                        <p className="mt-3 text-lg text-white">{item.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  </div>
                   <div className="grid gap-5">
                     <div className="rounded-[1.75rem] border border-white/10 bg-black/20 p-5 md:p-6">
-                      <p className="text-[10px] uppercase tracking-[0.35em] text-white/42">Frontend</p>
+                      <p className="text-[10px] uppercase tracking-[0.35em] text-[#d3b06b]">Signature</p>
                       <p className="mt-3 text-xl leading-8 text-white">Premium systems. Intentional motion. Product-grade implementation.</p>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -201,26 +147,29 @@ export default function HomePage() {
                   </div>
                 </motion.div>
                 <motion.div
-                  className="mt-10 flex flex-col gap-4 sm:flex-row"
+                  className="mt-12 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.32 }}
                 >
-                  <Link
-                    href="#work"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5"
-                  >
-                    Explore selected work <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="#contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm text-white/80 transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10"
-                  >
-                    Let&apos;s build something sharp
-                  </Link>
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <Link
+                      href="#work"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5"
+                    >
+                      Explore selected work <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    <Link
+                      href="#contact"
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm text-white/80 transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10"
+                    >
+                      Let&apos;s build something sharp
+                    </Link>
+                  </div>
+                  <SocialLinks className="lg:justify-end" />
                 </motion.div>
                 <motion.div
-                  className="mt-16 flex items-center gap-3 text-[11px] uppercase tracking-[0.45em] text-white/38"
+                  className="mt-20 flex items-center gap-3 text-[11px] uppercase tracking-[0.45em] text-white/38"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1.1, delay: 0.55 }}
@@ -236,17 +185,35 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.14}>
-            <HeroIdentity />
+            <div className="relative min-h-[680px] overflow-hidden rounded-[2.5rem] border border-[rgba(201,156,72,0.18)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-6 shadow-aura backdrop-blur-2xl md:p-8">
+              <div className="absolute inset-0 bg-grid opacity-15" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(201,156,72,0.16),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(129,24,43,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(8,76,48,0.18),transparent_24%)]" />
+              <div className="relative flex h-full min-h-[610px] items-center justify-center">
+                <BrandCrest />
+              </div>
+              <div className="absolute left-6 top-6 max-w-[180px] rounded-[1.75rem] border border-[rgba(201,156,72,0.16)] bg-[rgba(8,10,18,0.62)] p-4 backdrop-blur-xl">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-[#7cc8a3]">BY crest</p>
+                <p className="mt-3 text-sm leading-6 text-white/68">
+                  A phoenix and serpent emblem for ambition, resilience, strategy, and precision.
+                </p>
+              </div>
+              <div className="absolute bottom-8 right-6 max-w-[220px] rounded-[1.75rem] border border-[rgba(201,156,72,0.16)] bg-[rgba(8,10,18,0.68)] p-4 backdrop-blur-xl">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-[#d5b572]">Brand crest</p>
+                <p className="mt-3 text-sm leading-6 text-white/72">
+                  Phoenix ambition. Serpent precision. A luxury sigil built around the hidden initials BY.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </motion.div>
       </section>
 
-      <section className="section-shell mt-24 md:mt-36">
+      <section className="section-shell mt-28 md:mt-44">
         <Reveal>
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-            <div className="glass-panel rounded-[2.4rem] p-8 md:p-10">
-              <p className="text-[11px] uppercase tracking-[0.45em] text-white/42">Editorial note</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+          <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <div className="glass-panel rounded-[2.4rem] p-8 md:p-12">
+              <p className="text-[11px] uppercase tracking-[0.45em] text-[#d3b06b]">Editorial note</p>
+              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
                 Designed for memory,
                 <span className="display-serif block font-medium italic text-[#dce0ff]">not just usability.</span>
               </h2>
@@ -273,20 +240,22 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section id="work" className="section-shell mt-24 md:mt-40">
+      <section id="work" className="section-shell mt-28 md:mt-48">
         <Reveal>
-          <div className="max-w-4xl">
-            <p className="text-[11px] uppercase tracking-[0.5em] text-white/42">Selected work</p>
+          <div className="grid gap-8 lg:grid-cols-[0.74fr_1.26fr] lg:items-end">
+            <div>
+            <p className="text-[11px] uppercase tracking-[0.5em] text-[#d3b06b]">Selected work</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
               Bento-built project stories with premium tension, not generic thumbnails.
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-white/62">
+            </div>
+            <p className="max-w-xl text-base leading-8 text-white/62 lg:justify-self-end">
               Three projects. Bigger presence. Less filler.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid auto-rows-[minmax(320px,auto)] gap-6 lg:grid-cols-12">
+        <div className="mt-20 grid auto-rows-[minmax(340px,auto)] gap-7 lg:grid-cols-12">
           {featuredProjects.map((project, index) => (
             <Reveal
               key={project.slug}
@@ -296,7 +265,7 @@ export default function HomePage() {
               <motion.article
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.35 }}
-                className="group relative h-full overflow-hidden rounded-[2.3rem] border border-white/10 bg-[rgba(255,255,255,0.045)] p-6 shadow-aura backdrop-blur-2xl md:p-7"
+                className="group relative h-full overflow-hidden rounded-[2.3rem] border border-[rgba(201,156,72,0.14)] bg-[rgba(255,255,255,0.045)] p-6 shadow-aura backdrop-blur-2xl md:p-8"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-70`} />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_26%),linear-gradient(180deg,rgba(4,5,11,0.06),rgba(5,7,15,0.72)_58%,rgba(5,7,15,0.94))]" />
@@ -307,14 +276,24 @@ export default function HomePage() {
                 />
 
                 <div className="relative flex h-full flex-col justify-between gap-10">
-                  <div className={`grid gap-6 ${index === 2 ? "lg:grid-cols-[0.9fr_1.1fr] lg:items-end" : ""}`}>
+                  <div className={`grid gap-8 ${index === 2 ? "lg:grid-cols-[0.86fr_1.14fr] lg:items-end" : ""}`}>
                     <div>
                       <div className="flex items-center justify-between gap-4">
                         <span className="text-[11px] uppercase tracking-[0.38em] text-white/58">{project.category}</span>
                         <span className="text-sm text-white/52">{project.year}</span>
                       </div>
-                      <h3 className="mt-5 text-3xl font-semibold text-white md:text-4xl">{project.title}</h3>
+                      <h3 className="mt-6 text-3xl font-semibold text-white md:text-4xl">{project.title}</h3>
                       <p className="mt-4 max-w-xl text-base leading-8 text-white/72">{project.impact}</p>
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        {project.metrics.slice(0, 2).map((metric) => (
+                          <div
+                            key={metric.label}
+                            className="rounded-full border border-[rgba(201,156,72,0.15)] bg-[rgba(8,10,18,0.36)] px-4 py-2 text-xs uppercase tracking-[0.22em] text-[#e1cfaa]"
+                          >
+                            {metric.label} {metric.value}
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-[rgba(9,11,22,0.68)] p-4 md:p-5">
@@ -383,11 +362,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="process" className="section-shell mt-28 md:mt-40">
+      <section id="process" className="section-shell mt-32 md:mt-52">
         <Reveal>
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.5em] text-white/42">Case study flow</p>
+              <p className="text-[11px] uppercase tracking-[0.5em] text-[#7cc8a3]">Case study flow</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
                 Visual storytelling for how I move from friction to finished product.
               </h2>
@@ -398,7 +377,7 @@ export default function HomePage() {
           </div>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+        <div className="mt-20 grid gap-6 lg:grid-cols-2">
           {processSteps.map((item, index) => (
             <Reveal key={item.step} delay={index * 0.05}>
               <motion.article
@@ -424,19 +403,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="section-shell mt-28 md:mt-40">
+      <section id="about" className="section-shell mt-32 md:mt-52">
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal className="glass-panel rounded-[2.5rem] p-8 md:p-10">
-            <p className="text-[11px] uppercase tracking-[0.5em] text-white/42">About me</p>
+          <Reveal className="glass-panel rounded-[2.5rem] p-8 md:p-12">
+            <p className="text-[11px] uppercase tracking-[0.5em] text-[#d3b06b]">About me</p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
               Young in years.
               <span className="display-serif block font-medium italic text-[#dce0ff]">Elite in standards.</span>
             </h2>
           </Reveal>
 
-          <Reveal delay={0.08} className="glass-panel rounded-[2.5rem] p-8 md:p-10">
+          <Reveal delay={0.08} className="glass-panel rounded-[2.5rem] p-8 md:p-12">
             <p className="max-w-xl text-xl leading-9 text-white/68">
-              I want to build products that feel ahead of the market the moment they load.
+              I&apos;m Bhagya Yelleti, a frontend engineer obsessed with building interfaces that people remember.
             </p>
             <div className="mt-8 grid gap-4">
               {aboutPoints.map((point) => (
@@ -461,11 +440,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="skills" className="section-shell mt-28 overflow-hidden md:mt-40">
+      <section id="skills" className="section-shell mt-32 overflow-hidden md:mt-52">
         <Reveal>
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.5em] text-white/42">Skills</p>
+              <p className="text-[11px] uppercase tracking-[0.5em] text-[#7cc8a3]">Skills</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
                 Technical range with a visual point of view.
               </h2>
@@ -494,7 +473,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="section-shell mt-28 md:mt-40">
+      <section id="contact" className="section-shell mt-32 md:mt-52">
         <Reveal>
           <div className="relative overflow-hidden rounded-[2.8rem] border border-white/10 bg-[rgba(255,255,255,0.045)] px-7 py-10 shadow-aura backdrop-blur-2xl md:px-12 md:py-14">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,140,255,0.22),transparent_26%),radial-gradient(circle_at_75%_35%,rgba(82,209,255,0.14),transparent_22%),linear-gradient(180deg,rgba(6,7,13,0.15),rgba(6,7,13,0.78))]" />
@@ -503,31 +482,43 @@ export default function HomePage() {
               animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.9, 0.5] }}
               transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             />
-            <div className="relative">
+            <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+              <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-white/52">
                 <Sparkles className="h-3.5 w-3.5" />
                 Contact
               </div>
               <h2 className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-white md:text-7xl">
-                If your product deserves better interfaces,
-                <span className="display-serif block font-medium italic text-[#dce0ff]">let&apos;s build it.</span>
+                Let&apos;s build something unforgettable.
               </h2>
               <p className="mt-6 max-w-xl text-xl leading-9 text-white/68">
-                If the interface needs sharper taste, stronger execution, and more presence, I&apos;m in.
+                Open to frontend engineering roles, design-focused projects, and startup opportunities.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="mailto:hello@bhagyayelleti.dev"
+                  href="mailto:yelletibhagya@gmail.com"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5"
                 >
                   Send an email <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="https://github.com/bhagyayelleti"
+                  href="https://github.com/Bhagy-Yelleti"
                   target="_blank"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm text-white/80 transition duration-300 hover:-translate-y-0.5 hover:border-white/20"
                 >
                   View GitHub <Github className="h-4 w-4" />
+                </Link>
+              </div>
+              <div className="mt-8">
+                <SocialLinks />
+              </div>
+              </div>
+              <div className="flex justify-start lg:justify-end">
+                <Link
+                  href="#hero"
+                  className="rounded-[2rem] border border-[rgba(201,156,72,0.16)] bg-[rgba(9,12,20,0.56)] p-5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[rgba(214,178,97,0.28)]"
+                >
+                  <BrandCrest size="footer" />
                 </Link>
               </div>
             </div>

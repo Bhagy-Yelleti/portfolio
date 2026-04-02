@@ -18,7 +18,7 @@ export function SpotlightCursor() {
     return () => window.removeEventListener("pointermove", handlePointerMove);
   }, [x, y]);
 
-  const background = useMotionTemplate`radial-gradient(420px circle at ${x}px ${y}px, rgba(109, 123, 255, 0.16), transparent 45%)`;
+  const background = useMotionTemplate`radial-gradient(420px circle at ${x}px ${y}px, rgba(201, 156, 72, 0.12), rgba(125, 20, 42, 0.08) 24%, rgba(11, 91, 62, 0.08) 36%, transparent 52%)`;
 
   return (
     <motion.div
