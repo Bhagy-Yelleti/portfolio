@@ -10,7 +10,11 @@ export type ProjectStudy = {
   year: string;
   hero: string;
   summary: string;
+  impact: string;
   stack: string[];
+  liveUrl: string;
+  githubUrl: string;
+  accent: string;
   metrics: Metric[];
   sections: {
     label: string;
@@ -20,11 +24,11 @@ export type ProjectStudy = {
 };
 
 export const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
-  { href: "/contact", label: "Contact" },
+  { href: "#hero", label: "Home" },
+  { href: "#work", label: "Work" },
+  { href: "#process", label: "Process" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export const featuredProjects: ProjectStudy[] = [
@@ -36,7 +40,11 @@ export const featuredProjects: ProjectStudy[] = [
     hero: "A luxury-feeling commerce experience engineered to turn hesitation into momentum.",
     summary:
       "Built for a fashion startup that needed premium perception without enterprise bloat. The result paired cinematic product storytelling with sharp interaction design and ruthless performance budgets.",
+    impact: "Turned a commodity storefront into a premium conversion engine with sharper trust and faster buying momentum.",
     stack: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Content Modeling"],
+    liveUrl: "https://example.com/pulse-commerce",
+    githubUrl: "https://github.com/Bhagy-Yelleti/pulse-commerce",
+    accent: "from-[#7c8cff] via-[#4ecdc4] to-[#0a1020]",
     metrics: [
       { label: "Conversion lift", value: "+28%" },
       { label: "Mobile speed", value: "95+" },
@@ -107,7 +115,11 @@ export const featuredProjects: ProjectStudy[] = [
     hero: "A command-center dashboard designed to make complex operations feel calm, sharp, and inevitable.",
     summary:
       "Reimagined an internal platform for teams juggling campaigns, approvals, and deadlines. The experience focused on information density with control, clarity, and real visual confidence.",
+    impact: "Transformed operator chaos into a clear command surface that increased confidence and reduced training drag.",
     stack: ["Next.js", "TypeScript", "Design Systems", "Charts", "Motion UX"],
+    liveUrl: "https://example.com/signal-os",
+    githubUrl: "https://github.com/Bhagy-Yelleti/signal-os",
+    accent: "from-[#6a5cff] via-[#5ab7ff] to-[#090c18]",
     metrics: [
       { label: "Task completion", value: "+34%" },
       { label: "Average training time", value: "-41%" },
@@ -178,7 +190,11 @@ export const featuredProjects: ProjectStudy[] = [
     hero: "A focused writing product that balanced calm concentration with a future-facing interface language.",
     summary:
       "Designed and built an AI note-taking experience for people who want fewer interruptions and smarter support. The product centered on flow state instead of flashy novelty.",
+    impact: "Created an AI writing space that felt quiet, premium, and deeply usable instead of noisy and robotic.",
     stack: ["Next.js", "TypeScript", "AI UX", "Realtime UI", "Framer Motion"],
+    liveUrl: "https://example.com/nova-notes",
+    githubUrl: "https://github.com/Bhagy-Yelleti/nova-notes",
+    accent: "from-[#9d6bff] via-[#6677ff] to-[#0b1021]",
     metrics: [
       { label: "Weekly retention", value: "+22%" },
       { label: "Session depth", value: "+31%" },
