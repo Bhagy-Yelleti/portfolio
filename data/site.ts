@@ -24,10 +24,11 @@ export type ProjectStudy = {
 };
 
 export const navItems = [
-  { href: "#hero", label: "Home" },
-  { href: "#work", label: "Selected Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#hero", label: "Featured" },
+  { href: "/#featured-work", label: "Work" },
+  { href: "/#behind-the-interface", label: "Process" },
+  { href: "/#built-with-precision", label: "Stack" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export const featuredProjects: ProjectStudy[] = [

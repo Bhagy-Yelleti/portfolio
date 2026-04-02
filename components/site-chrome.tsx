@@ -10,11 +10,11 @@ export function SiteChrome() {
   const { playHover } = usePortfolioSound();
 
   return (
-    <header className="sticky top-0 z-40 px-4 pt-4 md:px-8">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-[rgba(214,175,92,0.12)] bg-[rgba(9,8,7,0.54)] px-4 py-3 shadow-[0_30px_100px_rgba(0,0,0,0.32)] backdrop-blur-2xl">
+    <header className="pointer-events-none sticky top-0 z-50 px-4 pt-4 md:px-8">
+      <div className="pointer-events-auto mx-auto max-w-[92rem] rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,17,21,0.82),rgba(9,9,12,0.72))] px-4 py-3 shadow-[0_24px_90px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-2xl">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
-          <Link href="#hero" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(216,168,75,0.18)] bg-[radial-gradient(circle_at_30%_30%,rgba(255,245,219,0.16),rgba(209,156,69,0.1)_45%,rgba(12,42,28,0.16)_100%)] text-xs uppercase tracking-[0.3em] text-[rgba(244,225,187,0.78)]">
+          <Link href="/#hero" className="flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,205,156,0.3),rgba(160,34,34,0.24)_38%,rgba(92,38,141,0.22)_100%)] text-xs uppercase tracking-[0.3em] text-[rgba(255,239,216,0.88)] shadow-[0_0_30px_rgba(201,74,47,0.3)]">
               BY
             </span>
             <div>
@@ -29,7 +29,7 @@ export function SiteChrome() {
                 <motion.div key={item.href} whileHover={{ y: -2 }} onHoverStart={playHover}>
                   <Link
                     href={item.href}
-                    className="rounded-full border border-[rgba(216,168,75,0.12)] bg-black/20 px-3 py-2 text-[11px] uppercase tracking-[0.28em] text-white/62 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(216,168,75,0.24)] hover:text-[#f0dfb5]"
+                    className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 text-[11px] uppercase tracking-[0.28em] text-white/62 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(195,72,52,0.45)] hover:bg-white/[0.06] hover:text-white"
                   >
                     {item.label}
                   </Link>
