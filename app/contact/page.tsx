@@ -19,9 +19,9 @@ export default function ContactPage() {
         <Reveal className="glass-panel rounded-[2rem] p-8">
           <p className="text-[11px] uppercase tracking-[0.45em] text-white/42">Reach out</p>
           <div className="mt-8 space-y-4 text-lg text-white/75">
-            <p>Email: hello@ab-portfolio.dev</p>
-            <p>LinkedIn: linkedin.com/in/ab-portfolio</p>
-            <p>GitHub: github.com/ab-portfolio</p>
+            <p>Email: hello@bhagyayelleti.dev</p>
+            <p>LinkedIn: linkedin.com/in/bhagyayelleti</p>
+            <p>GitHub: github.com/bhagyayelleti</p>
           </div>
           <p className="mt-8 max-w-2xl text-sm leading-7 text-white/62">
             Whether you need a frontend engineer, a UI-minded product builder, or someone who cares deeply about how software feels, I&apos;d love to hear what you&apos;re building.
@@ -33,7 +33,7 @@ export default function ContactPage() {
             The easiest way to start is a simple message with your product, your problem, and what "better" should feel like.
           </h2>
           <Link
-            href="mailto:hello@ab-portfolio.dev"
+            href="mailto:hello@bhagyayelleti.dev"
             className="mt-10 inline-flex rounded-full border border-white/12 bg-white/5 px-5 py-3 text-sm text-white/80 transition hover:border-white/20 hover:bg-white/10"
           >
             Send an email

@@ -9,11 +9,11 @@ export function SiteChrome() {
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3">
               <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-gradient-to-br from-white/15 to-white/5 text-xs font-semibold uppercase tracking-[0.35em] text-white/90">
-                AB
+                BY
               </span>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.45em] text-white/45">Digital identity</p>
-                <p className="text-sm text-white">Ambition in motion</p>
+                <p className="text-sm text-white">BhagyaYelleti</p>
               </div>
             </Link>
             <p className="hidden text-[10px] uppercase tracking-[0.45em] text-white/35 md:block">

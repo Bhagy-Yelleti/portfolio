@@ -17,8 +17,8 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "AB Portfolio",
-  description: "Cinematic portfolio for an ambitious frontend engineer obsessed with craft, motion, and premium interfaces.",
+  title: "BhagyaYelleti",
+  description: "Cinematic portfolio for Bhagya Yelleti, a frontend engineer obsessed with craft, motion, and premium interfaces.",
 };
 
 export default function RootLayout({
