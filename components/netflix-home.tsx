@@ -30,7 +30,7 @@ export function NetflixHome() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        {/* Hero Content */}
+        {/* Hero content - cleaner */}
         <div className="relative z-10 h-full flex items-center px-6 md:px-16 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -43,19 +43,19 @@ export function NetflixHome() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight"
+              className="text-6xl md:text-7xl font-black text-white leading-tight tracking-tight"
             >
               BHAGYA
               <br />
               YELLETI
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle - Professional */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-2xl md:text-4xl font-bold text-red-500"
+              className="text-2xl md:text-3xl font-bold text-white/80"
             >
               Builder of Things
             </motion.h2>
@@ -65,7 +65,7 @@ export function NetflixHome() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-base md:text-lg text-white/80 max-w-2xl leading-relaxed"
+              className="text-base md:text-lg text-white/60 max-w-2xl leading-relaxed"
             >
               Design • Development • Products • Systems
             </motion.p>
@@ -80,37 +80,20 @@ export function NetflixHome() {
               {/* Play Button */}
               <Link
                 href="#featured"
-                className="group w-full md:w-fit px-8 py-4 rounded-lg bg-white hover:bg-white/90 text-black font-bold flex items-center justify-center gap-3 transition-all duration-300 shadow-2xl hover:shadow-white/30"
+                className="px-8 py-3 bg-white hover:bg-white/90 text-black font-bold rounded flex items-center justify-center gap-2 transition-all duration-300 shadow-lg"
               >
-                <Play className="h-6 w-6 fill-current" />
-                <span>View Projects</span>
+                <Play className="h-5 w-5 fill-current" />
+                View Projects
               </Link>
 
               {/* More Info Button */}
               <Link
                 href="/about"
-                className="group w-full md:w-fit px-8 py-4 rounded-lg bg-white/20 hover:bg-white/30 text-white font-bold flex items-center justify-center gap-3 transition-all duration-300 border border-white/40 backdrop-blur-sm"
+                className="px-8 py-3 border border-white/40 hover:border-white/70 text-white font-bold rounded flex items-center justify-center gap-2 transition-all duration-300"
               >
-                <Info className="h-6 w-6" />
-                <span>More Info</span>
+                <Info className="h-5 w-5" />
+                About Me
               </Link>
-            </motion.div>
-
-            {/* Info tags */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-wrap gap-3 pt-6"
-            >
-              {["Frontend Specialist", "Full Stack Dev", "UI/UX Focused", "2026"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 rounded-full text-xs font-semibold text-white/70 border border-white/20 backdrop-blur-sm"
-                >
-                  {tag}
-                </span>
-              ))}
             </motion.div>
           </motion.div>
 
