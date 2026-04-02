@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-sans), sans-serif;
+  background: #06070b;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(124, 140, 255, 0.35);
+  color: white;
+}
+
+.mesh {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.6;
+}
+
+.mesh-a {
+  top: -10rem;
+  left: -8rem;
+  height: 28rem;
+  width: 28rem;
+  background: rgba(88, 111, 255, 0.22);
+}
+
+.mesh-b {
+  top: 22rem;
+  right: -8rem;
+  height: 26rem;
+  width: 26rem;
+  background: rgba(120, 82, 255, 0.18);
+}
+
+.mesh-c {
+  bottom: -8rem;
+  left: 30%;
+  height: 24rem;
+  width: 24rem;
+  background: rgba(82, 209, 255, 0.16);
+}
+
+.display-serif {
+  font-family: var(--font-serif), serif;
+}
+
+.section-shell {
+  position: relative;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1rem;
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 24px 80px rgba(4, 6, 14, 0.55);
+  backdrop-filter: blur(24px);
+}
+
+.hero-title {
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(124, 140, 255, 0.25), rgba(255, 255, 255, 0.05), rgba(82, 209, 255, 0.18));
+  z-index: -1;
+  opacity: 0.65;
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding-inline: 2rem;
+  }
+}
