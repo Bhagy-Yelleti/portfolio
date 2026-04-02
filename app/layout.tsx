@@ -45,7 +45,7 @@ export default function RootLayout({
             <div className="mesh mesh-a" />
             <div className="mesh mesh-b" />
             <div className="mesh mesh-c" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_28%),linear-gradient(180deg,#05060a_0%,#06070b_35%,#090b13_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,244,220,0.06),transparent_26%),linear-gradient(180deg,#060505_0%,#080706_35%,#0b0a09_100%)]" />
           </div>
           <SiteChrome />
           <PageTransition>{children}</PageTransition>

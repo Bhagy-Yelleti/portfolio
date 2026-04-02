@@ -133,7 +133,7 @@ export function SoundProvider({ children }: { children: ReactNode }) {
 
     stopAmbience();
 
-    const baseFrequencies = [196, 246.94, 293.66];
+    const baseFrequencies = [164.81, 246.94, 329.63];
     activeTonesRef.current = baseFrequencies.map((frequency, index) => {
       const oscillator = context.createOscillator();
       const gain = context.createGain();
@@ -141,13 +141,13 @@ export function SoundProvider({ children }: { children: ReactNode }) {
 
       oscillator.type = index === 1 ? "triangle" : "sine";
       oscillator.frequency.setValueAtTime(frequency, context.currentTime);
-      oscillator.detune.setValueAtTime(index === 0 ? -4 : index === 2 ? 6 : 0, context.currentTime);
+      oscillator.detune.setValueAtTime(index === 0 ? -8 : index === 2 ? 10 : 0, context.currentTime);
 
       filter.type = "lowpass";
-      filter.frequency.setValueAtTime(480 + index * 120, context.currentTime);
+      filter.frequency.setValueAtTime(620 + index * 180, context.currentTime);
 
       gain.gain.setValueAtTime(0.0001, context.currentTime);
-      gain.gain.linearRampToValueAtTime(0.017 - index * 0.003, context.currentTime + 2.4);
+      gain.gain.linearRampToValueAtTime(0.016 - index * 0.0025, context.currentTime + 2.8);
 
       oscillator.connect(filter);
       filter.connect(gain);
@@ -159,16 +159,33 @@ export function SoundProvider({ children }: { children: ReactNode }) {
     });
 
     if (typeof window !== "undefined") {
+      const ambientNotes = [493.88, 659.25, 739.99, 783.99, 987.77];
       ambienceIntervalRef.current = window.setInterval(() => {
+        const frequency = ambientNotes[Math.floor(Math.random() * ambientNotes.length)];
+        const detune = [-9, -4, 0, 5, 9][Math.floor(Math.random() * 5)];
+
         void spawnTone({
-          frequency: [523.25, 659.25, 783.99][Math.floor(Math.random() * 3)],
+          frequency,
           type: "triangle",
-          volume: 0.012,
-          attack: 0.04,
-          sustain: 0.12,
-          release: 1.6,
+          volume: 0.008,
+          attack: 0.06,
+          sustain: 0.18,
+          release: 1.9,
+          detune,
         });
-      }, 5200);
+
+        if (Math.random() > 0.55) {
+          void spawnTone({
+            frequency: frequency / 2,
+            type: "sine",
+            volume: 0.0045,
+            attack: 0.1,
+            sustain: 0.22,
+            release: 2.2,
+            detune: detune - 7,
+          });
+        }
+      }, 4200);
     }
   }, [ensureAudio, spawnTone, stopAmbience]);
 
@@ -187,33 +204,33 @@ export function SoundProvider({ children }: { children: ReactNode }) {
   const playSectionChime = useCallback(() => {
     if (!enabled) return;
     void spawnTone({
-      frequency: 523.25,
+      frequency: 493.88,
       type: "sine",
-      volume: 0.012,
+      volume: 0.011,
       attack: 0.02,
-      sustain: 0.08,
-      release: 1.15,
+      sustain: 0.1,
+      release: 1.2,
     });
     void spawnTone({
-      frequency: 783.99,
+      frequency: 739.99,
       type: "triangle",
-      volume: 0.008,
+      volume: 0.007,
       attack: 0.03,
-      sustain: 0.05,
-      release: 1.4,
-      detune: 8,
+      sustain: 0.08,
+      release: 1.6,
+      detune: 6,
     });
   }, [enabled, spawnTone]);
 
   const playLogoSpark = useCallback(() => {
     if (!enabled) return;
     void spawnTone({
-      frequency: 880,
+      frequency: 987.77,
       type: "triangle",
-      volume: 0.014,
+      volume: 0.011,
       attack: 0.01,
-      sustain: 0.06,
-      release: 0.7,
+      sustain: 0.07,
+      release: 0.95,
     });
   }, [enabled, spawnTone]);
 
@@ -228,9 +245,10 @@ export function SoundProvider({ children }: { children: ReactNode }) {
     if (!context || !master) return;
 
     const sequence = [
-      { frequency: 392, type: "sine" as OscillatorType, volume: 0.012, delay: 0 },
-      { frequency: 587.33, type: "triangle" as OscillatorType, volume: 0.011, delay: 0.34 },
-      { frequency: 783.99, type: "triangle" as OscillatorType, volume: 0.009, delay: 0.78 },
+      { frequency: 329.63, type: "sine" as OscillatorType, volume: 0.011, delay: 0 },
+      { frequency: 493.88, type: "triangle" as OscillatorType, volume: 0.01, delay: 0.28 },
+      { frequency: 739.99, type: "triangle" as OscillatorType, volume: 0.008, delay: 0.74 },
+      { frequency: 659.25, type: "sine" as OscillatorType, volume: 0.006, delay: 1.02 },
     ];
 
     sequence.forEach((tone) => {
@@ -248,14 +266,14 @@ export function SoundProvider({ children }: { children: ReactNode }) {
 
     window.setTimeout(() => {
       void spawnTone({
-        frequency: 293.66,
+        frequency: 246.94,
         type: "sine",
-        volume: 0.006,
-        attack: 0.1,
-        sustain: 0.5,
-        release: 1.5,
+        volume: 0.005,
+        attack: 0.12,
+        sustain: 0.6,
+        release: 1.7,
       });
-    }, 420);
+    }, 460);
   }, [ensureAudio, spawnTone]);
 
   const toggle = useCallback(async () => {

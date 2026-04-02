@@ -25,7 +25,7 @@ export type ProjectStudy = {
 
 export const navItems = [
   { href: "#hero", label: "Home" },
-  { href: "#work", label: "Work" },
+  { href: "#work", label: "Selected Work" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
