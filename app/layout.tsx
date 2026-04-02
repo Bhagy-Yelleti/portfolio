@@ -6,7 +6,7 @@ import { PageTransition } from "@/components/page-transition";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteChrome } from "@/components/site-chrome";
 import { SoundProvider } from "@/components/sound-provider";
-import { SpotlightCursor } from "@/components/spotlight-cursor";
+import { WandCursor } from "@/components/wand-cursor";
 
 const sans = Space_Grotesk({
   variable: "--font-sans",
@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className="bg-base text-white antialiased">
         <SoundProvider>
           <ScrollProgress />
-          <SpotlightCursor />
+          <WandCursor />
           <MagicDust />
           <div className="fixed inset-0 -z-10 overflow-hidden">
             <div className="mesh mesh-a" />
