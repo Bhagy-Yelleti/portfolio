@@ -1,28 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Space_Grotesk } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import { PageTransition } from "@/components/page-transition";
-import { SoundProvider } from "@/components/sound-provider";
 
-const sans = Space_Grotesk({
-  variable: "--font-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const serif = Cormorant_Garamond({
-  variable: "--font-serif",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "BhagyaYelleti",
-  description: "Netflix-style portfolio featuring premium digital experiences and cinematic interfaces.",
-  icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
-  },
+  title: "Bhagya Yelleti | Portfolio",
+  description: "Builder of intelligent digital experiences.",
 };
 
 export default function RootLayout({
@@ -31,12 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} dark`}>
       <body className="bg-black text-white antialiased">
-        <SoundProvider>
-          <div className="fixed inset-0 -z-10 overflow-hidden bg-black" />
-          <PageTransition>{children}</PageTransition>
-        </SoundProvider>
+        <div className="fixed inset-0 -z-10 bg-black overflow-hidden pointer-events-none">
+           {/* Subtle background glow */}
+           <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-900/20 blur-[120px] rounded-full mix-blend-screen" />
+           <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-900/20 blur-[120px] rounded-full mix-blend-screen" />
+        </div>
+        {children}
       </body>
     </html>
   );
